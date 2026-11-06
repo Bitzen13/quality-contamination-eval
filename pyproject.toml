@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "quality-probe"
+version = "0.1.0"
+description = "Measures how much of a model's QuALITY score survives without the story."
+requires-python = ">=3.10"
+dependencies = ["inspect-ai>=0.3.287", "anthropic", "openai", "numpy", "pandas", "pyarrow", "python-dotenv"]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[tool.setuptools]
+packages = ["quality_probe"]
+py-modules = ["analysis", "compare", "paraphrase", "study"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
